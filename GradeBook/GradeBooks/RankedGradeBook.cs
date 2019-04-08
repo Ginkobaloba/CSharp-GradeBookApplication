@@ -23,12 +23,33 @@ namespace GradeBook.GradeBooks
             else if (grades[(threshold * 2) - 1] <= averageGrade)
                 return 'B';
             else if (grades[(threshold * 3) - 1] <= averageGrade)
-                return 'C';
+                returna 'C';
             else if (grades[(threshold * 4) - 1] <= averageGrade)
                 return 'D';
             else
                 return 'F';
         }
-    
+
+        public override void CalculateStatistics()
+        {
+            if (Students.Count < 5)
+            {
+                Console.WriteLine("Ranked grading requires atleast 5 students.");
+                return;
+            }
+            base.CalculateStatistics();
+        }
+
+        public override void CalculateStudentStatistics(string name)
+        {
+            if (Students.Count < 5)
+            {
+                Console.WriteLine("Ranked grading requires atleast 5 students.");
+                return;
+            }
+            base.CalculateStudentStatistics(name);
+
+        }
+
     }
 }
